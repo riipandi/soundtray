@@ -10,6 +10,8 @@ pub(crate) fn tray(app_version: &str) -> SystemTray {
         "version".to_string(),
         "Soundtray v".to_string() + app_version,
     );
+    let play_pause = CustomMenuItem::new("play_pause".to_string(), "Play Radio");
+    let toggle_window = CustomMenuItem::new("toggle_window".to_string(), "Show Miniplayer");
     let preferences = CustomMenuItem::new("preferences".to_string(), "Preferences");
     let on_twitter = CustomMenuItem::new("on_twitter".to_string(), "Follow on Twitter");
     let send_feedback = CustomMenuItem::new("send_feedback".to_string(), "Send Feedback");
@@ -17,6 +19,9 @@ pub(crate) fn tray(app_version: &str) -> SystemTray {
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(version.disabled())
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(play_pause)
+        .add_item(toggle_window)
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(on_twitter)
         .add_item(send_feedback)

@@ -56,51 +56,47 @@ fn main() {
 fn tray_event(app: &AppHandle, event: SystemTrayEvent) {
     tauri_plugin_positioner::on_tray_event(app, &event);
     match event {
-        SystemTrayEvent::LeftClick {
-            position: _,
-            size: _,
-            ..
-        } => {
-            let win = app.get_window("main").unwrap();
-            let _ = win.move_window(Position::TrayCenter);
-
-            if win.is_visible().unwrap() {
-                win.hide().unwrap();
-            } else {
-                win.show().unwrap();
-                win.set_focus().unwrap();
-            }
-            // Trigger loading animation
-            block_on(set_tray_icon(app.clone())).unwrap();
-        }
-        SystemTrayEvent::RightClick {
-            position: _,
-            size: _,
-            ..
-        } => {
-            println!("system tray received a right click");
-        }
-        SystemTrayEvent::DoubleClick {
-            position: _,
-            size: _,
-            ..
-        } => {
-            println!("system tray received a double click");
-        }
+        // SystemTrayEvent::LeftClick {
+        //     position: _,
+        //     size: _,
+        //     ..
+        // } => {
+        //     println!("system tray received a left click");
+        // }
+        // SystemTrayEvent::RightClick {
+        //     position: _,
+        //     size: _,
+        //     ..
+        // } => {
+        //     println!("system tray received a right click");
+        // }
+        // SystemTrayEvent::DoubleClick {
+        //     position: _,
+        //     size: _,
+        //     ..
+        // } => {
+        //     println!("system tray received a double click");
+        // }
         SystemTrayEvent::MenuItemClick { id, .. } => {
-            // let item_handle = app.tray_handle().get_item(&id);
+            let item_handle = app.tray_handle().get_item(&id);
             match id.as_str() {
-                // "toggle_window" => {
-                //     let win = app.get_window("main").unwrap();
-                //     let new_title = if win.is_visible().unwrap() {
-                //         win.hide().unwrap();
-                //         "Show Window"
-                //     } else {
-                //         win.show().unwrap();
-                //         "Hide Window"
-                //     };
-                //     item_handle.set_title(new_title).unwrap();
-                // }
+                "play_pause" => {
+                    // Trigger loading animation
+                    block_on(set_tray_icon(app.clone())).unwrap();
+                }
+                "toggle_window" => {
+                    let win = app.get_window("main").unwrap();
+                    let _ = win.move_window(Position::TrayCenter);
+                    let new_title = if win.is_visible().unwrap() {
+                        win.hide().unwrap();
+                        "Show Miniplayer"
+                    } else {
+                        win.show().unwrap();
+                        win.set_focus().unwrap();
+                        "Hide Miniplayer"
+                    };
+                    item_handle.set_title(new_title).unwrap();
+                }
                 "on_twitter" => {
                     open(&app.shell_scope(), "https://twitter.com/riipandi", None).ok();
                 }
