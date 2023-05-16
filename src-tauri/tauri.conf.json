@@ -7,7 +7,7 @@
         "withGlobalTauri": false
     },
     "package": {
-        "productName": "Tray App",
+        "productName": "Soundtray",
         "version": "0.1.0"
     },
     "tauri": {
@@ -29,7 +29,7 @@
                 "icons/icon.icns",
                 "icons/icon.ico"
             ],
-            "identifier": "com.ripandis.tauri-tray-app",
+            "identifier": "com.ripandis.soundtray",
             "targets": "all",
             "macOS": {
                 "entitlements": null,
@@ -64,7 +64,7 @@
                 "fullscreen": false,
                 "resizable": true,
                 "skipTaskbar": true,
-                "title": "tauri-tray-app",
+                "title": "Soundtray",
                 "width": 400,
                 "height": 500,
                 "visible": false,

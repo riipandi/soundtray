@@ -8,12 +8,12 @@ use tauri::{CustomMenuItem, Icon, SystemTray, SystemTrayMenu, SystemTrayMenuItem
 pub(crate) fn tray(app_version: &str) -> SystemTray {
     let version = CustomMenuItem::new(
         "version".to_string(),
-        "Tray App v".to_string() + app_version,
+        "Soundtray v".to_string() + app_version,
     );
     let preferences = CustomMenuItem::new("preferences".to_string(), "Preferences");
     let on_twitter = CustomMenuItem::new("on_twitter".to_string(), "Follow on Twitter");
     let send_feedback = CustomMenuItem::new("send_feedback".to_string(), "Send Feedback");
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit Tray App").accelerator("Cmd+Q");
+    let quit = CustomMenuItem::new("quit".to_string(), "Quit Soundtray").accelerator("Cmd+Q");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(version.disabled())

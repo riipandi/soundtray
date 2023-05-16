@@ -1,10 +1,10 @@
 [package]
-name = "tauri-tray-app"
+name = "soundtray"
 version = "0.1.0"
 description = "A Tauri App"
 authors = ["you"]
 license = ""
-repository = "http://github.com/riipandi/tauri-tray-app"
+repository = "http://github.com/riipandi/soundtray"
 rust-version = "1.66"
 edition = "2021"
 

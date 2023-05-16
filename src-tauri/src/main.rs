@@ -107,7 +107,7 @@ fn tray_event(app: &AppHandle, event: SystemTrayEvent) {
                 "send_feedback" => {
                     open(
                         &app.shell_scope(),
-                        "https://ripandis.com/feedback?product=tauri-tray-app",
+                        "https://ripandis.com/feedback?product=soundtray",
                         None,
                     )
                     .ok();

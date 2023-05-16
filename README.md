@@ -1,8 +1,6 @@
-# Tauri Tray Application
+# Soundtray
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
-
-![Screenshot](.//screenshot.jpeg)
+Listen Code Radio from your tray.
 
 ## Recommended IDE Setup
 
@@ -10,7 +8,6 @@ This template should help get you started developing with Tauri, React and Types
 
 ## Acknowledgements
 
-- [Create a Menu Bar App With Tauri](https://betterprogramming.pub/create-menubar-app-with-tauri-510ab7f7c43d)
-- [tauri-tray-app-example](https://github.com/dheater/tauri-tray-app-example)
-- [tauri-tray-icon-animation](https://github.com/rming/tauri-tray-icon-animation)
-- [tauri-tray-menu](https://github.com/rming/tauri-tray-menu)
+- [freeCodeCamp.org Code Radio](https://coderadio.freecodecamp.org/)
+- [Tauri Tray App](https://github.com/riipandi/tauri-tray-app)
+- [Code Radio CLI](https://github.com/JasonWei512/code-radio-cli)
