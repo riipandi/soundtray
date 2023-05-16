@@ -55,7 +55,7 @@
         },
         "macOSPrivateApi": true,
         "systemTray": {
-            "iconPath": "icons/128x128@2x.png",
+            "iconPath": "icons/tray-icon.png",
             "iconAsTemplate": true,
             "menuOnLeftClick": true
         },
