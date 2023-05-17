@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 use crate::decoder::Mp3StreamDecoder;
 use anyhow::{Context, Result};
 use rodio::{OutputStream, Sink};

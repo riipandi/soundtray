@@ -8,6 +8,10 @@
         "build": "tsc && vite build",
         "build:mac:x64": "tauri build --target x86_64-apple-darwin",
         "build:mac:arm": "tauri build --target aarch64-apple-darwin",
+        "build:win:x64": "tauri build --target x86_64-pc-windows-msvc",
+        "build:win:arm": "tauri build --target aarch64-pc-windows-msvc",
+        "build:linux:x64": "tauri build --target x86_64-unknown-linux-gnu",
+        "build:linux:arm": "tauri build --target aarch64-unknown-linux-gnu",
         "format": "prettier --write \"**/*.{ts,tsx}\" && (cd src-tauri && cargo fmt)",
         "preview": "vite preview",
         "tauri": "tauri"
