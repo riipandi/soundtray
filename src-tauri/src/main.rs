@@ -17,11 +17,11 @@ use tauri::{AppHandle, Manager, SystemTrayEvent, WindowEvent};
 use tauri_plugin_positioner::{Position, WindowExt};
 
 // use anyhow::{anyhow, Context, Result};
-use anyhow::{Result};
+use anyhow::Result;
 use player::Player;
 use rodio::Source;
-use std::{sync::Mutex};
-use tokio::{time::Duration};
+use std::sync::Mutex;
+use tokio::time::Duration;
 // use tokio::{net::TcpStream, time::sleep};
 // use tokio_tungstenite::{MaybeTlsStream, WebSocketStream};
 // use model::{CodeRadioMessage, Remote};
@@ -31,7 +31,7 @@ const VERSION: &'static str = env!("CARGO_PKG_VERSION");
 // const WEBSOCKET_API_URL: &str = "wss://coderadio-admin.freecodecamp.org/api/live/nowplaying/coderadio";
 // const REST_API_URL: &str = "https://coderadio-admin.freecodecamp.org/api/live/nowplaying/coderadio";
 
-const LOADING_SPINNER_INTERVAL: Duration =  Duration::from_millis(60);
+const LOADING_SPINNER_INTERVAL: Duration = Duration::from_millis(60);
 static PLAYER: Mutex<Option<Player>> = Mutex::new(None);
 // static PROGRESS_BAR: Mutex<Option<ProgressBar>> = Mutex::new(None);
 
@@ -103,7 +103,10 @@ fn tray_event(app: &AppHandle, event: SystemTrayEvent) {
                             // TODO replace volume value from arg
                             player.set_volume(9);
                             PLAYER.lock().unwrap().replace(player);
-                        } Err(e) => { println!("ERROR: {:?}", e); }
+                        }
+                        Err(e) => {
+                            println!("ERROR: {:?}", e);
+                        }
                     }
 
                     // Trigger loading animation
@@ -125,7 +128,8 @@ fn tray_event(app: &AppHandle, event: SystemTrayEvent) {
                     //     None => message.station.listen_url.clone(),
                     // };
 
-                    let listen_url = "https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3";
+                    let listen_url =
+                        "https://coderadio-admin.freecodecamp.org/radio/8010/radio.mp3";
                     println!("Playing from: {:?}", listen_url);
 
                     // if let Some(station) = stations.iter().find(|station| station.url == listen_url) {
